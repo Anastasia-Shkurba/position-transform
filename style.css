@@ -16,7 +16,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding: 13px 0;
   position: sticky;
   top: 0;
   background: #fff;
@@ -66,6 +66,10 @@ body {
   color: #000;
 }
 
+.header__logo-img {
+  display: block;
+}
+
 .content {
   display: flex;
   justify-content: space-between;
@@ -111,13 +115,17 @@ body {
   left: 812px;
 }
 
-.main__chapter-title {
+.title {
   font-family: "Francois One", sans-serif;
-  font-size: 36px;
-  font-weight: 400;
   line-height: 1.33em;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  margin: 0;
+}
+
+.main__chapter-title {
+  font-size: 36px;
+  font-weight: 400;
   margin: 70px 0 40px;
   position: relative;
 }
@@ -170,4 +178,76 @@ body {
   font-size: 28px;
   font-weight: 400;
   line-height: 1.7em;
+}
+
+/* USAGE */
+.main__section-title {
+  font-weight: 600;
+  font-size: 36px;
+  position: relative;
+  margin: 70px 0 40px 120px;
+}
+
+.main__section-title::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 8px;
+  background: #000;
+  position: absolute;
+  left: -120px;
+  top: 40%;
+}
+
+.main__flip-cards {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 50px;
+  padding: 20px 15px;
+  border-top: 1px solid #BFBFBF;
+  border-bottom: 1px solid #BFBFBF;
+}
+
+/* .main__flip-cards::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100px;
+  height: 8px;
+  background: #000;
+  margin-bottom: 20px;
+} */
+
+.card {
+  width: 270px;
+  height: 180px;
+  perspective: 1000px;
+}
+
+.card__card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card__card-inner {
+  transform: rotateY(180deg);
+}
+
+.card__card-front,
+.card__card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card__card-back {
+  transform: rotateY(180deg);
 }
